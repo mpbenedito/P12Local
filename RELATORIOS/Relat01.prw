@@ -1,5 +1,4 @@
 #INCLUDE "TOTVS.CH"
-#include "rwmake.ch"
 
 #define DEV_ARQUIVO 1
 #define DEV_IMIPRESSORA 2
