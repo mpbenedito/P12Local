@@ -48,13 +48,14 @@ cPerg := ""
 lPixel := .t.
 cOrientacao := "left"
 
-// alterar esta variável fará o relatório imprimir uma linha com ou sem quebra
-lQuebraLinha := .T.
+// Alterar esta variável faz o relatório quebrar a linha impressa ou truncar os campos para caberem no espaço de uma linha
+lQuebraLinha := .F.
+
 
 oRelat := TReport():New( cNome,"Testes de Quebra de linha.", cPerg, {|oRelat| GeraRel(oRelat, lAuto ) }, cDescri, lPaisagem, /*cTotalText*/,/*lTotalLine*/, /*cTotalPage*/, /*lTotPage*/, /*lPageBreak*/, /*nSpaceCol*/ )
 oRelat:nfontbody:=8
 
-oSecao := TrSection():New( oRelat, "Seção Principal", "", /*aOrder*/, /*lLoadCells*/, /*lLoadOrder*/, /*cTotalText*/, /*lTotalLine*/,/*lHeaderPage*/, /*lHeadBreak*/, /*lPageBreak*/, lQuebraLinha, /*nLeftMarg*/, /*lLineStyle*/, /*nColSpace*/, .F.,	/*cCharSep*/,/*nLineBefore*/, /*nCols*/, /*nColorBG*/, /*nColorFG*/, /*nPercentual*/ )
+oSecao := TrSection():New( oRelat, "Seção Principal", "", /*aOrder*/, /*lLoadCells*/, /*lLoadOrder*/, /*cTotalText*/, /*lTotalLine*/,/*lHeaderPage*/, /*lHeadBreak*/, /*lPageBreak*/, lQuebraLinha, /*nLeftMarg*/, /*lLineStyle*/, /*nColSpace*/, /*lAutoSize*/,	/*cCharSep*/,/*nLineBefore*/, /*nCols*/, /*nColorBG*/, /*nColorFG*/, /*nPercentual*/ )
 TrCell():New(oSecao, "Texto1",	"",	"Texto 1",	/*picture*/, TAMSX3("A2_NOME")[1],	lPixel, /*bCodeBlock*/, cOrientacao, /*lLineBreak*/, /*cHeadAlign*/, /*uCompat*/, /*nColSpace*/, /*lAutoSize*/, /*nColorBG*/, /*nColorFG*/, /*lNegrito*/ )
 TrCell():New(oSecao, "Texto2",	"",	"Texto 2",	/*picture*/, TAMSX3("A2_NOME")[1],	lPixel, /*bCodeBlock*/, cOrientacao, /*lLineBreak*/, /*cHeadAlign*/, /*uCompat*/, /*nColSpace*/, /*lAutoSize*/, /*nColorBG*/, /*nColorFG*/, /*lNegrito*/ )
 TrCell():New(oSecao, "Texto3",	"",	"Texto 3",	/*picture*/, TAMSX3("A2_NOME")[1],	lPixel, /*bCodeBlock*/, cOrientacao, /*lLineBreak*/, /*cHeadAlign*/, /*uCompat*/, /*nColSpace*/, /*lAutoSize*/, /*nColorBG*/, /*nColorFG*/, /*lNegrito*/ )
